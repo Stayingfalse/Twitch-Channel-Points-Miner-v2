@@ -106,7 +106,7 @@ class ClientIRC(SingleServerIRCBot):
             self.connection.privmsg(self.channel,f"!pokemart {ball} 1")
             logger.info(f"New Ball Purchased at <https://twitch.tv/{self.channel[1:]}>", extra={"emoji": ":basketball:", "event": Events.CHAT_MENTION})
 
-        pokepurchased = f"@{self._nickname.lower()} Purchase successful!"
+        pokepurchased = f"@{self._nickname.lower()} Purchase successful"
         if pokepurchased in msg:
             pokemon = msg.split(" ")[3]                
             # nickname!username@nickname.tmi.twitch.tv
