@@ -72,6 +72,7 @@ class ClientIRC(SingleServerIRCBot):
                         "emoji": ":speech_balloon:", "event": Events.CHAT_MENTION})
  
         """ START POKEMON CODE """
+        """
         ball = pokeball or "pokeball"
 
         pokeescape = "escaped. No one caught it. jonasw5Rigged" #Pokemon Escaped
@@ -125,7 +126,7 @@ class ClientIRC(SingleServerIRCBot):
 
                 pokeball.replace(pokeball,msg.split(" ",1)[1])
                 self.connection.privmsg(self.channel,f"Default Ball Changed to --{pokeball}")
-
+    """
             
     def on_ctcp(self, connection, event):
         msg = event.arguments[1]
@@ -142,7 +143,6 @@ class ClientIRC(SingleServerIRCBot):
             time.sleep(random.randrange(1,10))
             self.connection.privmsg(self.channel,f"!pokecatch {ball}")
             logger.info(f"Pokemon {pokemon} Spawned in at {self.channel} <https://twitch.tv/{self.channel[1:]}>)", extra={"emoji": ":basketball:", "event": Events.CHAT_MENTION})
-        
         """ END OF POKEMON CODE """
 
 class ThreadChat(Thread):
