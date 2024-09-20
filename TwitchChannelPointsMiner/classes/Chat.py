@@ -26,6 +26,7 @@ class ClientIRC(SingleServerIRCBot):
         self.token = token
         self.channel = "#" + channel
         self.__active = False
+        self.last_kukoro_message_time = None
 
         super(ClientIRC, self).__init__(
             [(IRC, IRC_PORT, f"oauth:{token}")], username, username
@@ -74,6 +75,15 @@ class ClientIRC(SingleServerIRCBot):
 
             logger.info(f"{nick} at {self.channel} wrote: {msg}", extra={
                         "emoji": ":speech_balloon:", "event": Events.CHAT_MENTION})
+            
+        if "!kukoro" in msg:
+            current_time = time.time()
+            if self.last_kukoro_message_time is None or current_time - self.last_kukoro_message_time > 3600:
+                self.connection.privmsg(self.channel,f"!kukoro")
+                self.last_kukoro_message_time = current_time
+            
+
+
     # """
 
 
