@@ -81,7 +81,10 @@ class ClientIRC(SingleServerIRCBot):
             if self.last_kukoro_message_time is None or current_time - self.last_kukoro_message_time > 3600:
                 self.connection.privmsg(self.channel,f"!kukoro")
                 self.last_kukoro_message_time = current_time
-            
+        
+        if "Use !join to join the party" in msg:
+            current_time = time.time()
+                self.connection.privmsg(self.channel,f"!join")
 
 
     # """
