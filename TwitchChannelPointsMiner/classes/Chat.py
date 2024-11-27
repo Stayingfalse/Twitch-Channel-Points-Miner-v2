@@ -84,7 +84,7 @@ class ClientIRC(SingleServerIRCBot):
         
         if "Use !join to join the party" in msg:
             current_time = time.time()
-                self.connection.privmsg(self.channel,f"!join")
+            self.connection.privmsg(self.channel,f"!join")
 
 
     # """
